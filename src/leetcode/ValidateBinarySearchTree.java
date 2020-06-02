@@ -19,7 +19,7 @@ public class ValidateBinarySearchTree {
     // ================== 方法1 ======================
 
     /**
-     * 中序遍历二叉树，然后判断是不是生序
+     * 中序遍历二叉树，然后判断是不是升序
      *
      * @param root
      * @return
@@ -58,6 +58,12 @@ public class ValidateBinarySearchTree {
 
     // ================== 方法2 ======================
 
+    /**
+     * 递归，和前一个节点比较
+     *
+     * @param root
+     * @return
+     */
     public static boolean isValidBST(TreeNode root) {
         return isTree(root, Long.MAX_VALUE, Long.MIN_VALUE);
     }
