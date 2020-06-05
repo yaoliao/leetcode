@@ -22,7 +22,12 @@ public class TreeNode {
 
     public static TreeNode getTreeNode() {
         return new TreeNode.Builder().val(5)
-                .left(new TreeNode.Builder().val(2).build())
+                .left(new Builder().val(2)
+                        .left(new Builder().val(10).build())
+                        .right(new Builder().val(22)
+                                .left(new Builder().val(33).build())
+                                .build())
+                        .build())
                 .right(new TreeNode.Builder().val(8)
                         .left(new TreeNode.Builder().val(9).build())
                         .build())
