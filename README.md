@@ -6,9 +6,17 @@
 
 [15. 三数之和](./src/leetcode/ThreeSum.java)
 
+[22. 括号生成](./src/leetcode/GenerateParentheses.java)
+
 [50. Pow(x, n)](./src/leetcode/Pow.java)
 
+[51. N皇后](./src/leetcode/NQueens.java)
+
+[69. x 的平方根](./src/leetcode/SqrtX.java)
+
 [98. 验证二叉搜索树](./src/leetcode/ValidateBinarySearchTree.java)
+
+[104. 二叉树的最大深度](./src/leetcode/MaximumDepthOfBinaryTree.java)
 
 [121. 买卖股票的最佳时机](./src/leetcode/BestTimeToBuyAndSellStock.java)
 
