@@ -17,26 +17,23 @@ public class ThreeSum {
         List<List<Integer>> lists = new ArrayList<>();
         if (nums == null || nums.length < 3) return lists;
 
-        Arrays.sort(nums);
+        Arrays.sort(nums); // 先排序
         int len = nums.length;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < nums.length - 2; i++) {
             if (nums[i] > 0) break;
             if (i > 0 && nums[i] == nums[i - 1]) continue;
-            int l = i + 1;
-            int r = len - 1;
+            int l = i + 1, r = len - 1;
             while (l < r) {
-                int sum = nums[i] + nums[l] + nums[r];
-                if (sum == 0) {
+                int num = nums[i] + nums[l] + nums[r];
+                if (num == 0) {
                     lists.add(Arrays.asList(nums[i], nums[l], nums[r]));
                     while (l < r && nums[l] == nums[l + 1]) l++;
                     while (l < r && nums[r] == nums[r - 1]) r--;
                     l++;
                     r--;
-                }
-                if (sum < 0) l++;
-                if (sum > 0) r--;
+                } else if (num > 0) r--;
+                else l++;
             }
-
         }
         return lists;
     }
