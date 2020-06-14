@@ -30,9 +30,13 @@
 
 [104. 二叉树的最大深度](./src/leetcode/MaximumDepthOfBinaryTree.java)
 
+[120. 三角形最小路径和](./src/leetcode/Triangle.java)
+
 [121. 买卖股票的最佳时机](./src/leetcode/BestTimeToBuyAndSellStock.java)
 
 [122. 买卖股票的最佳时机 II](./src/leetcode/BestTimeToBuyAndSellStock.java)
+
+[152. 乘积最大子数组](./src/leetcode/MaximumProductSubarray.java)
 
 [169. 多数元素](./src/leetcode/MajorityElement.java)
 
@@ -50,7 +54,11 @@
 
 [242. 有效的字母异位词](./src/leetcode/ValidAnagram.java)
 
+[338. 比特位计数](./src/leetcode/CountingBits.java)
+
 [739. 每日温度](./src/leetcode/DailyTemperatures.java)
+
+[1300. 转变数组后最接近目标值的数组和](./src/leetcode/SumOfMutatedArrayClosestToTarget.java)
 
 
 
