@@ -10,7 +10,7 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
-    TreeNode(int x) {
+    public TreeNode(int x) {
         val = x;
     }
 
@@ -20,6 +20,13 @@ public class TreeNode {
         right = builder.right;
     }
 
+    /**
+     *             5
+     *       2          8
+     *  10      22    9
+     *        33
+     * @return
+     */
     public static TreeNode getTreeNode() {
         return new TreeNode.Builder().val(5)
                 .left(new Builder().val(2)
@@ -61,5 +68,14 @@ public class TreeNode {
         public TreeNode build() {
             return new TreeNode(this);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "val=" + val +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
     }
 }

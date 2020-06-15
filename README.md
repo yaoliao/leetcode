@@ -12,6 +12,8 @@
 
 [9. 回文数](./src/leetcode/PalindromeNumber.java)
 
+[14. 最长公共前缀](./src/leetcode/LongestCommonPrefix.java)
+
 [15. 三数之和](./src/leetcode/ThreeSum.java)
 
 [22. 括号生成](./src/leetcode/GenerateParentheses.java)
@@ -40,6 +42,8 @@
 
 [169. 多数元素](./src/leetcode/MajorityElement.java)
 
+[188. 买卖股票的最佳时机 IV](./src/leetcode/BestTimeToBuyAndSellStockIV.java)
+
 [208. 实现 Trie (前缀树)](./src/leetcode/ImplementTrie.java)
 
 [215. 数组中的第K个最大元素](./src/leetcode/KthLargestElementInAnArray.java)
@@ -53,6 +57,8 @@
 [239. 滑动窗口最大值](./src/leetcode/SlidingWindowMaximum.java)
 
 [242. 有效的字母异位词](./src/leetcode/ValidAnagram.java)
+
+[297. 二叉树的序列化与反序列化](./src/leetcode/SerializeAndDeserializeBinaryTree.java)
 
 [338. 比特位计数](./src/leetcode/CountingBits.java)
 
