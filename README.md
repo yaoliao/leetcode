@@ -60,9 +60,15 @@
 
 [297. 二叉树的序列化与反序列化](./src/leetcode/SerializeAndDeserializeBinaryTree.java)
 
+[300. 最长上升子序列](./src/leetcode/LongestIncreasingSubsequence.java)
+
+[322. 零钱兑换](./src/leetcode/CoinChange.java)
+
 [338. 比特位计数](./src/leetcode/CountingBits.java)
 
 [739. 每日温度](./src/leetcode/DailyTemperatures.java)
+
+[1014. 最佳观光组合](./src/leetcode/BestSightseeingPair.java)
 
 [1300. 转变数组后最接近目标值的数组和](./src/leetcode/SumOfMutatedArrayClosestToTarget.java)
 
