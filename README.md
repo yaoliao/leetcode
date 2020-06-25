@@ -2,6 +2,13 @@
 
 ***目录***
 
+###### 排序
+
+[快排](./src/leetcode/sort/QuickSort.java)
+
+
+###### leetcode 题目
+
 [1. 两数之和](./src/leetcode/TwoSum.java)
 
 [3. 无重复字符的最长子串](./src/leetcode/LongestSubstringWithoutRepeatingCharacters.java)
