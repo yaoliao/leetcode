@@ -85,11 +85,49 @@ public class LongestPalindromicSubstring {
         return s.substring(i + 1, j);
     }
 
+    /**
+     * dp
+     *
+     * @param s
+     * @return
+     */
+    public String longestPalindromeDp(String s) {
+        int len = s.length();
+        boolean[][] dp = new boolean[len][len];
+
+        int max = 0;
+        int tmpJ = 0;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j <= i; j++) {
+
+                if (i == j) {
+                    dp[i][j] = true;
+                    continue;
+                }
+
+                if (s.charAt(i) != s.charAt(j)) {
+                    dp[i][j] = false;
+                    continue;
+                }
+
+                if (i - j < 3) {
+                    dp[i][j] = true;
+                }
+                dp[i][j] = dp[i - 1][j + 1];
+                if (i - j > max) {
+                    max = i - j;
+                    tmpJ = j;
+                }
+            }
+        }
+        return s.substring(tmpJ, max + 1);
+    }
+
 
     public static void main(String[] args) {
         LongestPalindromicSubstring string = new LongestPalindromicSubstring();
-        System.out.println(string.longestPalindrome("babad"));
-        System.out.println(string.longestPalindrome("cbbd"));
+        System.out.println(string.longestPalindromeDp("babad"));
+        System.out.println(string.longestPalindromeDp("abcdcba"));
     }
 
 }

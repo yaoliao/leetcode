@@ -1,6 +1,8 @@
 package leetcode.template;
 
 /**
+ * 二分查找
+ *
  * @author: TuGai
  * @createTime: 2020-06-18 20:08
  **/

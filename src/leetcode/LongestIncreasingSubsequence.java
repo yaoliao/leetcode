@@ -43,7 +43,13 @@ public class LongestIncreasingSubsequence {
 
     // ==================== 利用二分查找 时间复杂度 O(NlogN) =====================
 
-    public int lengthOfLIS(int[] nums) {
+    /**
+     * 这样找出来的结果未必就是真实的结果 数组结果，但是数组长度确实一致的
+     *
+     * @param nums
+     * @return
+     */
+    public int lengthOfLISBs(int[] nums) {
         if (nums == null || nums.length == 0) return 0;
 
         int[] ints = new int[nums.length];
@@ -57,6 +63,23 @@ public class LongestIncreasingSubsequence {
             }
         }
         return len;
+    }
+
+    public int lengthOfLIS(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int len = nums.length;
+        int[] dp = new int[len];
+        Arrays.fill(dp, 1);
+        int max = 0;
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            max = Math.max(dp[i], max);
+        }
+        return max;
     }
 
     public static void main(String[] args) {

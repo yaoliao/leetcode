@@ -46,13 +46,27 @@ public class QuickSort {
         quickSortTryAgain(arr, r + 1, rightIndex);
     }
 
+    /**
+     * 优化后的快排
+     * <p>
+     * https://juejin.im/post/5d1c039d6fb9a07eb67daa82
+     *
+     * @param arr
+     * @param leftIndex
+     * @param rightIndex
+     */
     public static void quickSortTryAgainTwice(int[] arr, int leftIndex, int rightIndex) {
         if (leftIndex >= rightIndex) return;
         int l = leftIndex, r = rightIndex;
-        int tmp = arr[l];
+        // 选取比较值(这是为了放置原数组是倒叙排序的，使得 快排时间复杂度退化为 O(N^2) )
+        int mid = l + ((r - l) >> 1);
+        int tmp = arr[mid];
+        arr[mid] = arr[l];
+        arr[l] = tmp;
         while (l < r) {
             while (l < r && arr[r] >= tmp) r--;
             arr[l] = arr[r];
+
             while (l < r && arr[l] <= tmp) l++;
             arr[r] = arr[l];
         }
