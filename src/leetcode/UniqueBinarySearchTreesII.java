@@ -2,6 +2,7 @@ package leetcode;
 
 import leetcode.model.TreeNode;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
  **/
 public class UniqueBinarySearchTreesII {
 
-    public List<TreeNode> generateTrees(int n) {
+    public List<TreeNode> generateTreesV(int n) {
         if (n == 0) return Collections.emptyList();
         List<TreeNode> helper = helper(1, n);
         return helper;
@@ -44,6 +45,37 @@ public class UniqueBinarySearchTreesII {
         }
         return list;
     }
+
+
+    // ===============
+    public List<TreeNode> generateTrees(int n) {
+        if (n == 0) return Collections.emptyList();
+        return dfs(1, n);
+    }
+
+    private List<TreeNode> dfs(int l, int r) {
+        List<TreeNode> list = new ArrayList<>();
+        if (l > r) {
+            list.add(null);
+            return list;
+        }
+
+        for (int i = l; i <= r; i++) {
+            List<TreeNode> leftList = dfs(l, i - 1);
+            List<TreeNode> rightList = dfs(i + 1, r);
+
+            for (TreeNode left : leftList) {
+                for (TreeNode right : rightList) {
+                    TreeNode root = new TreeNode(i);
+                    root.left = left;
+                    root.right = right;
+                    list.add(root);
+                }
+            }
+        }
+        return list;
+    }
+
 
     public static void main(String[] args) {
         UniqueBinarySearchTreesII treesII = new UniqueBinarySearchTreesII();

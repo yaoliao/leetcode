@@ -23,7 +23,7 @@ public class Triangle {
      * @param triangle
      * @return
      */
-    public int minimumTotal(List<List<Integer>> triangle) {
+    public int minimumTotalV(List<List<Integer>> triangle) {
         int size = triangle.size();
         int[] ints = new int[size];
         for (int i = 0; i < ints.length; i++) {
@@ -37,16 +37,45 @@ public class Triangle {
         return ints[0];
     }
 
+
+    /**
+     * 再次尝试，还是垃圾。。。。。。。
+     *
+     * @param triangle
+     * @return
+     */
+    public int minimumTotal(List<List<Integer>> triangle) {
+        int size = triangle.size();
+        int[] dp = new int[size];
+        for (int i = 0; i < size; i++) {
+            for (int j = i; j >= 0; j--) {
+                if (j == 0) {
+                    dp[j] = dp[j] + triangle.get(i).get(j);
+                } else if (i == j) {
+                    dp[j] = triangle.get(i).get(j) + dp[j - 1];
+                } else {
+                    dp[j] = triangle.get(i).get(j) + Math.min(dp[j], dp[j - 1]);
+                }
+            }
+        }
+        int min = Integer.MAX_VALUE;
+        for (int i : dp) {
+            min = Math.min(min, i);
+        }
+        return min;
+    }
+
+
     public static void main(String[] args) {
-        /*List<List<Integer>> lists = Arrays.asList(
+        List<List<Integer>> lists = Arrays.asList(
                 Arrays.asList(2),
                 Arrays.asList(3, 4),
                 Arrays.asList(6, 5, 7),
-                Arrays.asList(4, 1, 8, 3));*/
+                Arrays.asList(4, 1, 8, 3));
 
-        List<List<Integer>> lists = Arrays.asList(
+        /*List<List<Integer>> lists = Arrays.asList(
                 Arrays.asList(1),
-                Arrays.asList(2, 3));
+                Arrays.asList(2, 3));*/
         Triangle triangle = new Triangle();
         System.out.println(triangle.minimumTotal(lists));
 

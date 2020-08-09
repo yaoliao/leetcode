@@ -48,7 +48,7 @@ public class SerializeAndDeserializeBinaryTree {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         int i = 1;
-        while (!queue.isEmpty()) {
+        while (!queue.isEmpty() && i < num.length) {
             TreeNode tree = queue.poll();
             String s = num[i++];
             if (!"null".equals(s)) {

@@ -62,6 +62,22 @@ public class UniqueBinarySearchTrees {
         return dp[n];
     }
 
+
+    // ================================   try again  ========================
+
+    public int numTreesDpV2(int n) {
+        int[] dp = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            int num = 0;
+            for (int j = 1; j <= i; j++) {
+                num += (j - 1 == 0 ? 1 : dp[j - 1]) * (i - j == 0 ? 1 : dp[i - j]);
+            }
+            dp[i] = num;
+        }
+        return dp[n];
+    }
+
+
     public static void main(String[] args) {
         UniqueBinarySearchTrees trees = new UniqueBinarySearchTrees();
         System.out.println(trees.numTrees(1));

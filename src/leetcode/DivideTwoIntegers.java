@@ -11,9 +11,16 @@ package leetcode;
  **/
 public class DivideTwoIntegers {
 
-    // TODO  还没理解
-    //  https://leetcode-cn.com/problems/divide-two-integers/solution/po-su-de-xiang-fa-mei-you-wei-yun-suan-mei-you-yi-/
 
+    /**
+     * =============  强强强  =============
+     * <p>
+     * https://leetcode-cn.com/problems/divide-two-integers/solution/po-su-de-xiang-fa-mei-you-wei-yun-suan-mei-you-yi-/
+     *
+     * @param dividend
+     * @param divisor
+     * @return
+     */
     public int divide(int dividend, int divisor) { // 被除数 除数
         if (divisor == -1 && dividend == Integer.MIN_VALUE) return Integer.MAX_VALUE; // 溢出
         int sign = 1;
@@ -24,7 +31,6 @@ public class DivideTwoIntegers {
         int a = dividend > 0 ? -dividend : dividend;
         int b = divisor > 0 ? -divisor : divisor;
         // 都改为负号是因为int 的范围是[2^32, 2^32-1]，如果a是-2^32，转为正数时将会溢出
-        //System.out.println(a + " " + b);
         if (a > b) return 0;
         int ans = div(a, b);
         return sign == -1 ? -ans : ans;
@@ -40,6 +46,37 @@ public class DivideTwoIntegers {
             //System.out.println(tb + " " + count + " " + count*b);
         }
         return count + div(a - tb, b);
+    }
+
+    //============================================================
+
+    public int divideTry(int dividend, int divisor) {
+        if (dividend == Integer.MIN_VALUE && divisor == -1) return Integer.MAX_VALUE;
+        int mark = 1;
+        if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0)) {
+            mark = -1;
+        }
+        int a = dividend, b = divisor;
+        if (a > 0) a = -a;
+        if (b > 0) b = -b;
+        int res = helper(a, b);
+        return mark == 1 ? res : -res;
+    }
+
+    private int helper(int a, int b) {
+        if (a > b) return 0;
+        int tmpB = b;
+        int count = 1;
+        while (tmpB + tmpB >= a && tmpB + tmpB < 0) {
+            tmpB += tmpB;
+            count += count;
+        }
+        return count + helper(a - tmpB, b);
+    }
+
+    public static void main(String[] args) {
+        DivideTwoIntegers integers = new DivideTwoIntegers();
+        System.out.println(integers.divideTry(2147483647, 3));
     }
 
 

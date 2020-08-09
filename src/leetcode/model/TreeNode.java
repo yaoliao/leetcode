@@ -1,5 +1,8 @@
 package leetcode.model;
 
+import leetcode.ConvertSortedArrayToBinarySearchTree;
+import leetcode.SerializeAndDeserializeBinaryTree;
+
 /**
  * @author: TuGai
  * @createTime: 2020-06-01 23:47
@@ -21,10 +24,11 @@ public class TreeNode {
     }
 
     /**
-     *             5
-     *       2          8
-     *  10      22    9
-     *        33
+     * 5
+     * 2          8
+     * 10      22    9
+     * 33
+     *
      * @return
      */
     public static TreeNode getTreeNode() {
@@ -39,6 +43,21 @@ public class TreeNode {
                         .left(new TreeNode.Builder().val(9).build())
                         .build())
                 .build();
+    }
+
+    public static TreeNode createBySorted(int[] sortedArray) {
+        ConvertSortedArrayToBinarySearchTree tree = new ConvertSortedArrayToBinarySearchTree();
+        return tree.sortedArrayToBST(sortedArray);
+    }
+
+    public static TreeNode deserialize(String str) {
+        SerializeAndDeserializeBinaryTree tree = new SerializeAndDeserializeBinaryTree();
+        return tree.deserialize(str);
+    }
+
+    public static String serialize(TreeNode root) {
+        SerializeAndDeserializeBinaryTree tree = new SerializeAndDeserializeBinaryTree();
+        return tree.serialize(root);
     }
 
 
